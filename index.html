@@ -21,7 +21,8 @@
         <!-- Контент по центру -->
         <div class="intro-content">
             <h1 class="bride-name">Гүлзада</h1>
-            <p class="event-title">Қыз ұзату</p>
+            <!-- <p class="event-title">Қыз ұзату</p> -->
+            <p class="event-title">Сырға салу & Құдалық</p>
 
             <!-- Аудио-плеер (скрытый) -->
             <audio id="bg-music" src="audio/wedding-song.mp3" loop></audio>
@@ -53,13 +54,23 @@
         <div class="invitation-content">
             <h2 class="welcome-title">Құрметті қонақтар!</h2>
 
+            <!-- Добавили перечисление гостей -->
+            <p class="guests-list">
+                Ағайын-туыс, бауырлар, әпке-жезделер, нағашы-жиен, бөлелер, құда-жекжат, дос-жарандар мен
+                әріптестер!
+            </p>
+
+            <img src="images/divider.png" alt="разделитель" class="text-divider">
+
             <p class="invitation-text-blue">Сіздерді аяулы қызымыз</p>
 
-            <!-- Помним, что имя меняем на Гүлзаданың -->
+            <!-- Имя в родительном падеже -->
             <h3 class="bride-name-gold">Гүлзаданың</h3>
 
+            <!-- Измененный текст под Сырға салу & Құдалық -->
             <p class="invitation-text-blue">
-                ұзату тойына арналған<br>
+                Сырға салу рәсімі мен<br>
+                Құдалық тойына арналған<br>
                 салтанатты ақ<br>
                 дастарханымыздың қадірлі<br>
                 қонағы болуға шақырамыз!
@@ -67,7 +78,6 @@
         </div>
 
         <!-- Нижний букет цветов -->
-        <!-- Проверь имя файла в папке images/page_1 или page_2 и замени, если нужно -->
         <img src="images/page_1/flower_2.png" alt="Нижний букет" class="decor-flower-bottom">
     </div>
 
@@ -178,17 +188,18 @@
             <!-- Контейнер для интерактивной Google Карты -->
             <div class="map-container">
                 <div style="position:relative; overflow:hidden; height: 100%;"><a
-                    href="https://yandex.kz/maps/ru/162/almaty/?utm_medium=mapframe&utm_source=maps"
-                    style="color:#eee;font-size:12px;position:absolute;top:0px;">Алматы</a><a
-                    href="https://yandex.kz/maps/ru/29406/alma-ata-district/house/ardager_koshesi_31a/Y08YcQ9gTUYBQFppfX50dHVrYA==/?ll=76.781924%2C43.255895&utm_medium=mapframe&utm_source=maps&z=18.76"
-                    style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Ардагер, 31А —
-                    Яндекс Карты</a><iframe
-                    src="https://yandex.kz/map-widget/v1/?ll=76.781924%2C43.255895&mode=whatshere&whatshere%5Bpoint%5D=76.780458%2C43.255936&whatshere%5Bzoom%5D=17&z=18.76"
-                    width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
-            </div>
+                        href="https://yandex.kz/maps/ru/162/almaty/?utm_medium=mapframe&utm_source=maps"
+                        style="color:#eee;font-size:12px;position:absolute;top:0px;">Алматы</a><a
+                        href="https://yandex.kz/maps/ru/29406/alma-ata-district/house/ardager_koshesi_31a/Y08YcQ9gTUYBQFppfX50dHVrYA==/?ll=76.781924%2C43.255895&utm_medium=mapframe&utm_source=maps&z=18.76"
+                        style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Ардагер, 31А —
+                        Яндекс Карты</a><iframe
+                        src="https://yandex.kz/map-widget/v1/?ll=76.781924%2C43.255895&mode=whatshere&whatshere%5Bpoint%5D=76.780458%2C43.255936&whatshere%5Bzoom%5D=17&z=18.76"
+                        width="560" height="400" frameborder="1" allowfullscreen="true"
+                        style="position:relative;"></iframe>
+                </div>
             </div>
 
-            
+
 
             <!-- Стильная кнопка вместо мелких иконок -->
             <!-- Замени ссылку в href на реальный адрес ресторана в 2ГИС, когда он понадобится -->
@@ -201,42 +212,49 @@
 
     <!-- Пятый экран (Анкета / Форма) -->
     <div class="rsvp-screen">
-        <!-- ВСТАВЬ СВОЮ ССЫЛКУ ИЗ SHEET MONKEY В ACTION НИЖЕ -->
-        <form action="https://sheetmonkey.io" method="POST" class="rsvp-form">
+        <div class="rsvp-card">
+            <h2 class="rsvp-title">Құдалық дастарханына қатысуыңызды растауыңызды сұраймыз!</h2>
 
-            <h2 class="rsvp-title">Тойға келе аласыз ба?</h2>
+            <form method="POST" class="rsvp-form" onsubmit="sendRsvpToGoogleTable(event)">
 
-            <p class="rsvp-subtitle">Аты-жөніңіз (жұбыңызбен келетін болсаңыз, есімдеріңізді бірге жазуыңызды өтінеміз)
-            </p>
+                <!-- Стильный контейнер для ввода имени -->
+                <div class="input-group">
+                    <input type="text" id="guest-name" name="name" placeholder=" " required autocomplete="off">
+                    <label for="guest-name">Есіміңізді жазыңыз</label>
+                    <span class="input-underline"></span>
+                </div>
 
-            <!-- Поле ввода имени (name должен строго совпадать с заголовком колонки в таблице) -->
-            <div class="input-group">
-                <input type="text" name="Есімі" placeholder="ЕСІМІҢІЗ" required>
-            </div>
+                <!-- Современные кастомные радиокнопки в виде широких плашек -->
+                <div class="attendance-options">
+                    <label class="option-tile">
+                        <input type="radio" name="attendance" value="Келемін" required>
+                        <div class="tile-content">
+                            <span class="tile-icon">✨</span>
+                            <span class="tile-text">Келемін</span>
+                        </div>
+                    </label>
 
-            <!-- Радиокнопки (name должен строго совпадать с заголовком колонки в таблице) -->
-            <div class="radio-group">
-                <label class="radio-label">
-                    <input type="radio" name="Жауабы" value="Келемін" checked>
-                    <span class="custom-radio"></span>
-                    Келемін
-                </label>
-                <label class="radio-label">
-                    <input type="radio" name="Жауабы" value="Жұбыммен келемін">
-                    <span class="custom-radio"></span>
-                    Жұбыммен келемін
-                </label>
-                <label class="radio-label">
-                    <input type="radio" name="Жауабы" value="Өкінішке орай, қатыса алмаймын">
-                    <span class="custom-radio"></span>
-                    Өкінішке орай, келе алмаймын
-                </label>
-            </div>
+                    <label class="option-tile">
+                        <input type="radio" name="attendance" value="Жұбыммен келемін">
+                        <div class="tile-content">
+                            <span class="tile-icon">👩‍❤️‍👨</span>
+                            <span class="tile-text">Жұбыммен келемін</span>
+                        </div>
+                    </label>
 
-            <!-- Кнопка отправки -->
-            <button type="submit" class="submit-btn">Жіберу</button>
+                    <label class="option-tile">
+                        <input type="radio" name="attendance" value="Өкінішке орай, келе алмаймын">
+                        <div class="tile-content">
+                            <span class="tile-icon">🤍</span>
+                            <span class="tile-text">Өкінішке орай, келе алмаймын</span>
+                        </div>
+                    </label>
+                </div>
 
-        </form>
+                <!-- Кнопка отправки -->
+                <button id="submitBtn" type="submit" class="submit-btn-modern">Жіберу</button>
+            </form>
+        </div>
     </div>
 
     <!-- Шестой экран (Финал / Пожелание) -->
@@ -263,9 +281,14 @@
         <img src="images/page_1/flower_2.png" alt="Фиrecordный букет" class="final-flower-bottom">
     </div>
 
-
-
-
+    <!-- Универсальное кастомное окно (динамическое) -->
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-content">
+            <!-- Текст сюда будет подставляться автоматически через JS -->
+            <p id="modalMessage" class="modal-message"></p>
+            <button id="modalBtn" class="modal-close-btn" onclick="closeCustomModal()">OK</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
