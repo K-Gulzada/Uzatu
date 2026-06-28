@@ -210,53 +210,6 @@
         </div>
     </div>
 
-    <!-- Пятый экран (Анкета / Форма) -->
-    <div class="rsvp-screen">
-        <div class="rsvp-card">
-            <h2 class="rsvp-title">Құдалық дастарханына қатысуыңызды растауыңызды сұраймыз!</h2>
-
-            <form method="POST" class="rsvp-form" onsubmit="sendRsvpToGoogleTable(event)">
-
-                <!-- Стильный контейнер для ввода имени -->
-                <div class="input-group">
-                    <input type="text" id="guest-name" name="name" placeholder=" " required autocomplete="off">
-                    <label for="guest-name">Есіміңізді жазыңыз</label>
-                    <span class="input-underline"></span>
-                </div>
-
-                <!-- Современные кастомные радиокнопки в виде широких плашек -->
-                <div class="attendance-options">
-                    <label class="option-tile">
-                        <input type="radio" name="attendance" value="Келемін" required>
-                        <div class="tile-content">
-                            <span class="tile-icon">✨</span>
-                            <span class="tile-text">Келемін</span>
-                        </div>
-                    </label>
-
-                    <label class="option-tile">
-                        <input type="radio" name="attendance" value="Жұбыммен келемін">
-                        <div class="tile-content">
-                            <span class="tile-icon">👩‍❤️‍👨</span>
-                            <span class="tile-text">Жұбыммен келемін</span>
-                        </div>
-                    </label>
-
-                    <label class="option-tile">
-                        <input type="radio" name="attendance" value="Өкінішке орай, келе алмаймын">
-                        <div class="tile-content">
-                            <span class="tile-icon">🤍</span>
-                            <span class="tile-text">Өкінішке орай, келе алмаймын</span>
-                        </div>
-                    </label>
-                </div>
-
-                <!-- Кнопка отправки -->
-                <button id="submitBtn" type="submit" class="submit-btn-modern">Жіберу</button>
-            </form>
-        </div>
-    </div>
-
     <!-- Шестой экран (Финал / Пожелание) -->
     <div class="final-screen">
         <div class="final-content">
@@ -279,15 +232,6 @@
 
         <!-- Нижний букет цветов (тот же самый, что на 2-й странице) -->
         <img src="images/page_1/flower_2.png" alt="Фиrecordный букет" class="final-flower-bottom">
-    </div>
-
-    <!-- Универсальное кастомное окно (динамическое) -->
-    <div id="customModal" class="modal-overlay">
-        <div class="modal-content">
-            <!-- Текст сюда будет подставляться автоматически через JS -->
-            <p id="modalMessage" class="modal-message"></p>
-            <button id="modalBtn" class="modal-close-btn" onclick="closeCustomModal()">OK</button>
-        </div>
     </div>
 
     <script src="script.js"></script>
